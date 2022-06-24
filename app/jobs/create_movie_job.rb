@@ -2,7 +2,7 @@ class CreateMovieJob < ApplicationJob
   queue_as :default
 
   before_enqueue do |job|
-    QueueJob.create(job: job_id, name: arguments.first[:title], priority: priority)
+    QueueJob.create(job_id: job_id, name: arguments.first[:title], priority: priority)
   end
 
   def perform(movie_params)

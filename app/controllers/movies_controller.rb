@@ -5,7 +5,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    CreateMovieJob.set(priority: 0).perform_later(movie_params)
+    job = CreateMovieJob.set(priority: 0).perform_later(movie_params)
+    if job.successfully_enqueued?
+      render json: { job: "Job has successfully created" }
+    else
+      render json: { job: "Job has not successfully created" }
+    end
   end
 
   def movie_params
