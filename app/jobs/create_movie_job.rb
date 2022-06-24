@@ -7,11 +7,11 @@ class CreateMovieJob < ApplicationJob
 
   def perform(movie_params)
     job = QueueJob.find_by(job_id: job_id)
-    job.update(status: "in_progress")
+    job.update(status: 'in_progress')
     if Movie.create(movie_params)
-      job.update(status: "done")
+      job.update(status: 'done')
     else
-      job.update(status: "failed")
+      job.update(status: 'failed')
     end
   end
 end
