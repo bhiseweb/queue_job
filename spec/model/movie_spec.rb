@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
   
-  describe "should be check validation" do
+  describe "check validation" do
     it "should not be movie title present" do
       movie = Movie.new(title: nil).save
       expect(movie).to eq(false)
