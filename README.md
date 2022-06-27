@@ -6,19 +6,21 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
-* System dependencies
+    - 3.1.2
+* Rails version
+    - 7.0.3
 
 * Configuration
+    database.yml file
+        - username
+        - password
 
 * Database creation
+    - rails db:create
+    - rails db:migrate
 
-* Database initialization
+* Run project
+    - rails s
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    rspec
